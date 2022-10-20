@@ -1,7 +1,7 @@
 # Microservices labs repository
 
 ## Microservices Lab 2: Database
-### Script for launching is located in "2" directory and called "script.cmd":
+### Script for launching is located in "2" directory and called "start.cmd":
 ```CMD
 minikube start
 kubectl apply -f k8s/mysql
