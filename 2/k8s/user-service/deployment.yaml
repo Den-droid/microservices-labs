@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+spec:
+  replicas: 1                      # кількість екземплярів Pod, що буде створено цим Deployment
+  selector:
+    matchLabels:
+      app: user-service               # селектор по якому Deployment зв'язаний з Pod
+  template:
+    metadata:
+     labels:
+       app: user-service               # мітка Pod по якому вона буде зв'язана з Deployment та Service
+    spec:
+      initContainers: 
+        - name: run-migrations
+          image: yarema2000/user-service-migrations:0.1
+          imagePullPolicy: "IfNotPresent"  
+          command: ["migrate", "-path", "/migrations", "-database", "$(MYSQL_URL)", "goto", "$(VERSION)"]
+          env:
+            - name: MYSQL_URL
+              value: "mysql://root:password@tcp(mysql:3306)/microservices?tls=false"
+            - name: VERSION
+              value: "20221018180233"
+      containers:
+        - image: yarema2000/user-service:0.2      # образ Docker
+          imagePullPolicy: "IfNotPresent" 
+          name: user-service           # ім'я контейнеру
+          ports:
+            - containerPort: 8080  # порт по якому можна звертатись до поди
+          envFrom:
+            - configMapRef:
+                name: user-service-config
+            - secretRef:
+                name: user-service-secret

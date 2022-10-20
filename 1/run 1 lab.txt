@@ -1,0 +1,10 @@
+minikube start
+@FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i
+docker build --no-cache -t user-service services/UserService
+docker build --no-cache -t food-service services/FoodService
+docker build --no-cache -t client client
+kubectl apply -f k8s/user-service
+kubectl apply -f k8s/food-service
+kubectl apply -f k8s/client
+kubectl get ingress
+minikube tunnel
