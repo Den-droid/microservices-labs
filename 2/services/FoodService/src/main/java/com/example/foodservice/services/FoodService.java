@@ -8,4 +8,10 @@ public interface FoodService {
     Food getById(int id);
 
     List<Integer> getAllIds();
+
+    void addFood(Food food);
+
+    void updateFood(int id, Food food);
+
+    void deleteFood(int id);
 }

@@ -25,4 +25,19 @@ public class FoodController {
     public List<Integer> getAllIds() {
         return foodService.getAllIds();
     }
+    @PostMapping("/food")
+    public void addUser(@RequestBody Food food){
+        foodService.addFood(food);
+    }
+
+    @PutMapping("/food/{id}")
+    public void updateUser(@PathVariable int id,
+                           @RequestBody Food food){
+        foodService.updateFood(id, food);
+    }
+
+    @DeleteMapping("/food/{id}")
+    public void deleteUser(@PathVariable int id){
+        foodService.deleteFood(id);
+    }
 }

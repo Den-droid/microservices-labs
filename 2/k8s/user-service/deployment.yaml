@@ -13,18 +13,18 @@ spec:
        app: user-service               # мітка Pod по якому вона буде зв'язана з Deployment та Service
     spec:
       initContainers: 
-        - name: run-migrations
-          image: yarema2000/user-service-migrations:0.1
-          imagePullPolicy: "IfNotPresent"  
+        - name: run-migrations-user
+          image: yarema2000/microservices-migrations:0.1
+          imagePullPolicy: "IfNotPresent"
           command: ["migrate", "-path", "/migrations", "-database", "$(MYSQL_URL)", "goto", "$(VERSION)"]
           env:
             - name: MYSQL_URL
               value: "mysql://root:password@tcp(mysql:3306)/microservices?tls=false"
             - name: VERSION
-              value: "20221018180233"
+              value: "20221021191933"
       containers:
         - image: yarema2000/user-service:0.2      # образ Docker
-          imagePullPolicy: "IfNotPresent" 
+          imagePullPolicy: "IfNotPresent"
           name: user-service           # ім'я контейнеру
           ports:
             - containerPort: 8080  # порт по якому можна звертатись до поди

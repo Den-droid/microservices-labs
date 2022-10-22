@@ -5,7 +5,7 @@ function readUserIdsRequest(callback) {
       callback(xmlHttp.responseText);
   };
   xmlHttp.open("GET", "/api/users/ids", true);
-  //xmlHttp.open("GET", "http://localhost:8080/api/users/ids", true);
+  //xmlHttp.open("GET", "http://localhost:8081/api/users/ids", true);
   xmlHttp.send(null);
 }
 
@@ -16,7 +16,7 @@ function readUserByIdRequest(id, callback) {
       callback(xmlHttp.responseText);
   };
   xmlHttp.open("GET", "/api/users/" + id, true);
-  //xmlHttp.open("GET", "http://localhost:8080/api/users/" + id, true);
+  //xmlHttp.open("GET", "http://localhost:8081/api/users/" + id, true);
   xmlHttp.send(null);
 }
 
@@ -26,7 +26,7 @@ function addUserRequest(callback) {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) callback();
   };
   xmlHttp.open("POST", "/api/users", true);
-  //xmlHttp.open("POST", "http://localhost:8080/api/users", true);
+  //xmlHttp.open("POST", "http://localhost:8081/api/users", true);
   xmlHttp.setRequestHeader("Content-Type", "application/json");
   xmlHttp.send(
     JSON.stringify({
@@ -39,7 +39,7 @@ function addUserRequest(callback) {
 function changeUserRequest(id) {
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.open("PUT", "/api/users/" + id, true);
-  //xmlHttp.open("PUT", "http://localhost:8080/api/users/" + id, true);
+  //xmlHttp.open("PUT", "http://localhost:8081/api/users/" + id, true);
   xmlHttp.setRequestHeader("Content-Type", "application/json");
   xmlHttp.send(
     JSON.stringify({
@@ -55,7 +55,7 @@ function deleteUserRequest(id, callback) {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) callback();
   };
   xmlHttp.open("DELETE", "/api/users/" + id, true);
-  //xmlHttp.open("DELETE", "http://localhost:8080/api/users/" + id, true);
+  //xmlHttp.open("DELETE", "http://localhost:8081/api/users/" + id, true);
   xmlHttp.setRequestHeader("Content-Type", "application/json");
   xmlHttp.send(null);
 }
@@ -127,16 +127,16 @@ function changeUser() {
 function deleteUser() {
   let editSelect = document.getElementsByName("selectForDeleteUser")[0];
   let id = editSelect.options[editSelect.selectedIndex].value;
-  deleteUserRequest(id, function(){
+  deleteUserRequest(id, function () {
     setUserIds();
   });
 }
 
-let select = document.getElementsByName("selectUserId")[0];
-select.addEventListener("change", setUserInfo);
+let selectUser = document.getElementsByName("selectUserId")[0];
+selectUser.addEventListener("change", setUserInfo);
 
-let changeSelect = document.getElementsByName("selectForChangeUser")[0];
-changeSelect.addEventListener("change", setChangeUser);
+let changeSelectUser = document.getElementsByName("selectForChangeUser")[0];
+changeSelectUser.addEventListener("change", setChangeUser);
 
 let addUserButton = document.getElementById("addUser");
 addUserButton.addEventListener("click", addUser);

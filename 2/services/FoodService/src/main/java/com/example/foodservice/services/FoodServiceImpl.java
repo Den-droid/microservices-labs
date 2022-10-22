@@ -23,4 +23,20 @@ public class FoodServiceImpl implements FoodService {
     public List<Integer> getAllIds() {
         return foodRepository.getAllIds();
     }
+
+    @Override
+    public void addFood(Food food) {
+        foodRepository.add(food);
+    }
+
+    @Override
+    public void updateFood(int id, Food food) {
+        food.setId(id);
+        foodRepository.update(food);
+    }
+
+    @Override
+    public void deleteFood(int id) {
+        foodRepository.delete(id);
+    }
 }

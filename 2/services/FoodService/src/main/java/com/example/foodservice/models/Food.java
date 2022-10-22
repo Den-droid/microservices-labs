@@ -1,14 +1,9 @@
 package com.example.foodservice.models;
 
-import com.example.foodservice.repositories.FoodRepository;
-
 public class Food {
     private int id;
     private String name;
     private float price;
-
-    public Food() {
-    }
 
     public Food(int id, String name, float price) {
         this.id = id;
@@ -18,6 +13,10 @@ public class Food {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

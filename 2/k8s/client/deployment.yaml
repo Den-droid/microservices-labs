@@ -13,7 +13,7 @@ spec:
        app: client
     spec:
       containers:
-        - image: yarema2000/client:0.1
+        - image: yarema2000/client:0.2
           imagePullPolicy: "IfNotPresent"
           name: client
           ports:

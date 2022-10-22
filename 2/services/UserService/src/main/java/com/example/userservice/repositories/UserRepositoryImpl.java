@@ -14,7 +14,7 @@ public class UserRepositoryImpl implements UserRepository {
     private final String username;
     private final String password;
 
-    public UserRepositoryImpl(Environment env) throws ClassNotFoundException {
+    public UserRepositoryImpl(Environment env) {
         this.username = env.getProperty("spring.datasource.username");
         this.password = env.getProperty("spring.datasource.password");
         this.url = env.getProperty("spring.datasource.url");

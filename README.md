@@ -5,26 +5,30 @@
 ```CMD
 minikube start
 kubectl apply -f k8s/mysql
-kubectl apply -f k8s/food-service
 kubectl apply -f k8s/client
+TIMEOUT /t 120
+kubectl apply -f k8s/food-service
 kubectl apply -f k8s/user-service
+TIMEOUT /t 60
 minikube tunnel
 ```
-You can remove minikube start if you have already started your cluster.
 
 ### API Endpoints
 1. [User Interface](http://localhost:80/)
-2. Users (CRUD is implemented here and MYSQL db is used here):
+2. Users:
    * [Add User (POST)](http://localhost:80/api/users)
    * [Edit User (PUT)](http://localhost:80/api/users/1)
    * [Delete User (DELETE)](http://localhost:80/api/users/1)
    * [Get users' ids (GET)](http://localhost:80/api/users/ids)
    * [Get user by id (GET)](http://localhost:80/api/users/1)
 3. Food:
-   * [Get users' ids (GET)](http://localhost:80/api/food/ids)
-   * [Get user by id (GET)](http://localhost:80/api/food/1)
-
+   * [Add food (POST)](http://localhost:80/api/food)
+   * [Edit food (PUT)](http://localhost:80/api/food/1)
+   * [Delete food (DELETE)](http://localhost:80/api/food/1)
+   * [Get food ids (GET)](http://localhost:80/api/food/ids)
+   * [Get food by id (GET)](http://localhost:80/api/food/1)
 
 ### Additional information
 
-For getting info about specific user you need to add at least 2 users.
+For getting info about specific object you need to add at least 2 examples of these object.
+You can remove first timeout from script if you already have mysql:8.0.28 (second timeout is for ingress configuring)

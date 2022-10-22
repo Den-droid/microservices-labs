@@ -1,0 +1,4 @@
+docker build --no-cache -t yarema2000/food-service:0.2 services/FoodService
+docker build --no-cache -t yarema2000/user-service:0.2 services/UserService
+docker build --no-cache -t yarema2000/microservices-migrations:0.1 migrations
+docker build --no-cache -t yarema2000/client:0.2 client
