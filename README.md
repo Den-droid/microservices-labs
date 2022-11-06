@@ -32,3 +32,18 @@ minikube tunnel
 
 For getting info about specific object you need to add at least 2 examples of these object.
 You can remove first timeout from script if you already have mysql:8.0.28 (second timeout is for ingress configuring)
+
+
+## Microservices Lab 3: Helm
+
+We have got here the same services, we've just changed the way they are deploying, particularly, through HELM - packet manager for Cubernetes.
+### Script for launching (you are in "3" folder): 
+```CMD
+helm install helm-demo helm
+```
+
+### API Endpoints
+Look for the same title in Microservices Lab 2: Database 
+
+### Additional information
+Look for the same title in Microservices Lab 2: Database 
