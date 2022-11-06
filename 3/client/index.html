@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Simple Web Site" />
+  <title>Demo App</title>
+</head>
+
+<body>
+  <div id="root">
+    <p>
+      Select id of user you want to see:
+      <select name="selectUserId">
+
+      </select>
+    <div id="userContent">
+
+    </div>
+    </p>
+    <hr>
+
+    <div id="addUserDiv">
+      <div>
+        <label>
+          User name:
+          <input name="addUserName" type="text">
+        </label>
+        <label>
+          User address:
+          <input name="addUserAddress" type="text">
+        </label>
+      </div>
+      <button id="addUser">
+        Add user
+      </button>
+    </div>
+    <hr>
+
+    <div id="changeUserDiv">
+      <div>
+        <select name="selectForChangeUser">
+
+        </select>
+        <label>
+          User name:
+          <input name="changeUserName" type="text">
+        </label>
+        <label>
+          User address:
+          <input name="changeUserAddress" type="text">
+        </label>
+      </div>
+      <button id="changeUser">
+        Change user
+      </button>
+    </div>
+    <hr>
+
+    <div id="deleteUserDiv">
+      <div>
+        <select name="selectForDeleteUser">
+
+        </select>
+      </div>
+      <button id="deleteUser">
+        Delete user
+      </button>
+    </div>
+    <hr>
+	
+	  <hr>
+	  <p>
+        Select id of food you want to see: 
+        <select name="selectFoodId">
+
+        </select>
+        <div id="foodContent">
+
+        </div>
+    </p>
+    <div id="addFoodDiv">
+      <div>
+        <label>
+          Food name:
+          <input name="addFoodName" type="text">
+        </label>
+        <label>
+          Food price:
+          <input name="addFoodPrice" type="text">
+        </label>
+      </div>
+      <button id="addFood">
+        Add food
+      </button>
+    </div>
+    <hr>
+
+    <div id="changeFoodDiv">
+      <div>
+        <select name="selectForChangeFood">
+
+        </select>
+        <label>
+          Food name:
+          <input name="changeFoodName" type="text">
+        </label>
+        <label>
+          Food price:
+          <input name="changeFoodPrice" type="text">
+        </label>
+      </div>
+      <button id="changeFood">
+        Change food
+      </button>
+    </div>
+    <hr>
+
+    <div id="deleteFoodDiv">
+      <div>
+        <select name="selectForDeleteFood">
+
+        </select>
+      </div>
+      <button id="deleteFood">
+        Delete food
+      </button>
+    </div>
+
+  </div>
+  <script src="food.js"></script>
+  <script src="user.js"></script>
+</body>
+
+</html>
