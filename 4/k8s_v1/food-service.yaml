@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-service-deployment
+spec:
+  replicas: 3                     # кількість екземплярів Pod, що буде створено цим Deployment
+  selector:
+    matchLabels:
+      app: food-service               # селектор по якому Deployment зв'язаний з Pod
+  template:
+    metadata:
+     labels:
+       app: food-service               # мітка Pod по якому вона буде зв'язана з Deployment та Service
+    spec:
+      containers:
+        - image: yarema2000/food-service-istio:0.1      # образ Docker
+          imagePullPolicy: "IfNotPresent"
+          name: food-service           # ім'я контейнеру
+          ports:
+            - containerPort: 8080  # порт по якому можна звертатись до поди
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: food-service-service
+spec:
+  type: ClusterIP      # тип доступу до сервісу, ClusterIp - значення за замовчуванням і може бути пропущене
+  ports:
+    - port: 80         # порт по якому можна звератись до сервісу
+      targetPort: 8080 # порт контейнера
+  selector:
+    app: food-service      # селектор, всі Pod з даним селектором, будуть підключені до даного сервісу

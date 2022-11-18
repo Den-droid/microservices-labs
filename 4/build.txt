@@ -1,0 +1,3 @@
+docker build --no-cache -t yarema2000/food-service-istio:0.1 services/FoodService
+docker build --no-cache -t yarema2000/user-service-istio:0.1 services/UserService
+docker build --no-cache -t yarema2000/root-service-istio:0.1 services/RootService
