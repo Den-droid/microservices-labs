@@ -1,3 +1,4 @@
+kubectl label namespace default --overwrite istio-injection=enabled 
 kubectl apply -f k8s_v1
 kubectl apply -f k8s_v2_retry
 minikube tunnel

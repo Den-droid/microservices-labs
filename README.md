@@ -47,3 +47,31 @@ Look for the same title in Microservices Lab 2: Database
 
 ### Additional information
 Look for the same title in Microservices Lab 2: Database 
+
+## Microservices Lab 4: Istio
+
+We have got the same services but we inject istio into our pods to reduce time of waiting for services
+### Script for launching (you are in "4" folder): 
+```CMD
+kubectl apply -f k8s_v1
+kubectl apply -f k8s_v2_retry
+minikube tunnel
+REM Send request to api/food/bad
+REM Start test script
+kubectl apply -f k8s_v3_circuit
+minikube tunnel
+REM Start test script
+```
+
+### API Endpoints
+
+* [Get user service string](http://localhost/api/users)
+* [Get food service string](http://localhost/api/food)
+* [Send requests to other 2 services](http://localhost/api/root)
+* [Cause food service malfunctioning](http://localhost/api/food/bad)
+
+### Additional information
+* We have the same amount of threads in test script and amount of food-service replicas. 
+* We have 13-20 errors after applying retry/timeout strategy. 
+* We have 6-7 errors after applying circuit breaker strategy and running script for the first time and 0 errors after running test script for the second time. 
+* Also we have lower duration of test script after each strategy appliance.

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: food-service-config
+data:
+  DB_HOST: "mysql:3306"
+  DB_NAME: "microservices"

@@ -10,7 +10,7 @@ public class Main {
     static int errorCount = 0;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        String url = "http://localhost/api/root";
+        String url = "http://localhost/api/orders/0";
         int n = 3;
 
         ExecutorService executorService = Executors.newFixedThreadPool(n);
