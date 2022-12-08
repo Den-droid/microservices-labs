@@ -1,0 +1,4 @@
+docker build --no-cache -t yarema2000/message-consumer-service:0.1 services/MessageConsumerService
+docker build --no-cache -t yarema2000/food-service-messaging:0.1 services/FoodService
+docker build --no-cache -t yarema2000/user-service-messaging:0.1 services/UserService
+docker build --no-cache -t yarema2000/microservices-migrations-messaging:0.1 migrations

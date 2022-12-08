@@ -65,13 +65,29 @@ REM Start test script
 
 ### API Endpoints
 
-* [Get user service string](http://localhost/api/users)
-* [Get food service string](http://localhost/api/food)
-* [Send requests to other 2 services](http://localhost/api/root)
+* [Generate 10 orders](http://localhost/api/orders/generate)
+* [Get order (send syncronous requests to 2 other services)](http://localhost/api/orders/1)
 * [Cause food service malfunctioning](http://localhost/api/food/bad)
 
 ### Additional information
 * We have the same amount of threads in test script and amount of food-service replicas. 
-* We have 13-20 errors after applying retry/timeout strategy. 
+* We have 8-15 errors after applying retry/timeout strategy. 
 * We have 6-7 errors after applying circuit breaker strategy and running script for the first time and 0 errors after running test script for the second time. 
 * Also we have lower duration of test script after each strategy appliance.
+
+## Microservices Lab 5: Async communication
+
+We have got the same services, plus message service.
+### Script for launching (you are in "5" folder): 
+```CMD
+helm install messaging-demo
+```
+
+### API Endpoints
+
+* [Get all messages](http://localhost/api/messages)
+* [Get message by id](http://localhost/api/messages/1)
+* All previous endpoints
+
+### Additional information
+* When we access food or user by id, we send message to broker and message service register that message in database
