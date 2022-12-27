@@ -1,0 +1,14 @@
+helm install --namespace monitoring prometheus prometheus-community/kube-prometheus-stack
+helm install loki --namespace=monitoring grafana/loki-stack
+helm install messaging-demo helm
+kubectl port-forward --namespace monitoring service/prometheus-grafana 3000:80
+
+Prometheus url for grafana:
+http://prometheus-kube-prometheus-prometheus.monitoring:9090/
+
+Loki url for grafana:
+http://loki.monitoring:3100
+
+rate(prometheus_http_requests_total{pod="prometheus-prometheus-kube-prometheus-prometheus-0"}[$__rate_interval])
+rate(container_cpu_usage_seconds_total{pod="messaging-demo-user-service-7c87d8fc99-bzhjr"}[$__rate_interval])
+container_memory_rss {pod="rabbitmq-0"}

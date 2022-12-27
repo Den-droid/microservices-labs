@@ -17,7 +17,7 @@ public class FoodServiceApplication {
         SpringApplication.run(FoodServiceApplication.class, args);
     }
 
-    @Value("${rabbitmq.host}")
+    @Value("${spring.rabbitmq.host}")
     private String rabbitHost;
 
     @Bean

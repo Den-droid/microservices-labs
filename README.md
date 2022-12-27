@@ -91,3 +91,18 @@ helm install messaging-demo
 
 ### Additional information
 * When we access food or user by id, we send message to broker and message service register that message in database
+
+## Microservices Lab 6: Monitoring
+
+We have got the same services as in 5 lab
+### Script for launching (you are in "6" folder): 
+```CMD
+helm install --namespace monitoring prometheus prometheus-community/kube-prometheus-stack
+helm install loki --namespace=monitoring grafana/loki-stack
+helm install messaging-demo helm
+kubectl port-forward --namespace monitoring service/prometheus-grafana 3000:80
+```
+
+### API Endpoints
+
+* [Grafana](http://localhost:3000)

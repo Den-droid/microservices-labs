@@ -7,3 +7,9 @@ spring:
     host: ${RABBIT_HOST}
     username: ${RABBIT_USERNAME}
     password: ${RABBIT_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

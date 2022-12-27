@@ -1,0 +1,16 @@
+mysql:
+  fullnameOverride: mysql
+  auth:
+    database: "microservices"
+    rootPassword: "password"
+  primary:
+    persistence:
+      enabled: false
+      
+rabbitmq:
+  fullnameOverride: rabbitmq
+  auth:
+    username: guest
+    password: guest
+  persistence:
+    enabled: false
